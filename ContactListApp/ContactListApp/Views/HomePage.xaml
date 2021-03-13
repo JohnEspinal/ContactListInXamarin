@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ContactListApp.Views.HomePage"
+             xmlns:components="clr-namespace:ContactListApp.Components"
+             x:Name="mainPage">
+
+
+        
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Name="MenuItem1" Order="Primary" Text="Add" Command="{Binding AddCommand}"/>
+        </ContentPage.ToolbarItems>
+
+    <StackLayout>
+
+
+        <ListView ItemsSource="{Binding Contacts}"
+              SelectedItem="{Binding SelectedContact}"
+              HasUnevenRows="True"
+              SeparatorColor="Blue"
+              SeparatorVisibility="Default"
+              ItemSelected="ListView_ItemSelected"
+              Footer="">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <components:ItemView />
+                        <ViewCell.ContextActions>
+
+                            <MenuItem Text="More" Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.MoreCommand}" CommandParameter="{Binding}"/>
+                            <MenuItem Text="Delete" Command="{Binding Source={x:Reference mainPage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"/>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </StackLayout>
+
+
+</ContentPage>
