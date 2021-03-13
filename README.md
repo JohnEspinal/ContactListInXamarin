@@ -11,5 +11,5 @@ Contacts
 Selected
 
 <p align="center">
-<img src="Images\Selected.png" width="300px" title="sample"/>
+<img src="images\Selected.png" width="300px" title="sample"/>
 </p>
